@@ -32,13 +32,16 @@
 						<span class="formulario__item formulario__<?=@$class_mensaje?>"><?=@$mensaje?></span>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__dni base-100 tablet-50" name="dni" type="text" placeholder="DNI" value="<?=$dni?>" maxlength="8" minlength="8" readonly required>
+						<input class="formulario__item formulario__dni base-100 tablet-50" name="email" type="email" placeholder="Email" value="<?=$email?>" readonly required>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__nombre base-100 tablet-50" name="nombre" type="text" placeholder="Nombres y Apellidos" value="<?=$nombre?>" required>
+						<input class="formulario__item formulario__nombre base-100 tablet-50" name="nombre" type="text" placeholder="Nombres" value="<?=$nombre?>" required>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__password base-100 tablet-50" name="password" type="password" placeholder="Contraseña" required>
+						<input class="formulario__item formulario__nombre base-100 tablet-50" name="apellido" type="text" placeholder="Apellidos" value="<?=$apellido?>" required>
+					</div>
+					<div class="ed-item main-center cross-center">
+						<input class="formulario__item formulario__password base-100 tablet-50" name="contrasena" type="password" placeholder="Contraseña" required>
 					</div>
 					<div class="ed-item main-center cross-center">
 						<input class="formulario__item formulario__enviar base-100 tablet-50" type="submit" value="ACTUALIZAR">

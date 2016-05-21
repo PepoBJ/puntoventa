@@ -3,6 +3,6 @@
 		<img class="img__home" src="<?=$helper->base_url()?>img/logo.png" alt="logo">
 	</div>
 	<div class="ed-item base-70 movil-80 web-90 main-center movil-main-center cross-center movil-cross-center">
-		<h2>SEGUIMIENTO DE RESOLUCIONES</h2>
+		<h2>DISTRIBUCIONES PLAS ANTHONY</h2>
 	</div>
 </div>

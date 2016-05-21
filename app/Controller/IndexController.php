@@ -9,16 +9,17 @@
 		
 		public function index()
 		{
+			
 			session_start();
 
 			HS::sesion_iniciada($this, 'index', 'home');
 
 			$data = array(
-				"title"         => "Seguimiento de Resoluciones",
+				"title"         => "Distr. Plas Anthony",
 				"error"			=> "",
-				"dni"			=> "",
-				'datos_template' => array(
-					'autor' => 'Robert BJ HC',
+				"email"			=> "",
+				'datos_template' => array( 
+					'autor' => 'Sistema',
 					'anio'  => '2016'
 				)
 			);
@@ -32,25 +33,26 @@
 			HS::sesion_iniciada($this);
 
 			$data = array(
-				"title"          => "Seguimiento de Resoluciones",
+				"title"          => "Distr. Plas Anthony",
 				"error"          => "",
-				"dni"            => "",
+				"email"            => "",
 				'datos_template' => array(
-					'autor' => 'Robert BJ HC',
+					'autor' => 'Sistema',
 					'anio'  => '2016'
 				)
 			);
 
 			if(!empty($_POST) && isset($_POST))
 			{
-				if(MUsuario::login($_POST['dni'], $_POST['password']))
+				if(MUsuario::login($_POST['email'], $_POST['contrasena']))
 				{
+					var_dump("ho");
 					$this->redirect('index', 'home');
 				}
 				else
 				{
-					$data['dni']   = $_POST['dni'];
-					$data['error'] = "DNI o Contraseña incorrecto";
+					$data['email']   = $_POST['email'];
+					$data['error'] = "Email o Contraseña incorrecto";
 				}
 			}
 
@@ -58,31 +60,31 @@
 
 		}
 
-		public function registro()
+		/*public function registro()
 		{
 			session_start();
 
 			HS::sesion_iniciada($this);
 
 			$data = array(
-				"title"          => "Seguimiento de Resoluciones",
+				"title"          => "Distr. Plas Anthony",
 				"error"          => "",
 				"dni"            => "",
 				"nombre"         => "",
 				'datos_template' => array(
-					'autor' => 'Robert BJ HC',
+					'autor' => 'Sistema',
 					'anio'  => '2016'
 				)
 			);
 
 			if(!empty($_POST) && isset($_POST))
 			{
-				if(MUsuario::saveUser($_POST['dni'], $_POST['nombre'], $_POST['password']))
+				if(MUsuario::saveUser($_POST['dni'], $_POST['nombre'], $_POST['contrasena']))
 				{
 					$user = MUsuario::getDni($_POST['dni'])[0];
 
 					$_SESSION['user']['dni']      = $user->getDni();
-					$_SESSION['user']['password'] = $user->getPassword();
+					$_SESSION['user']['contrasena'] = $user->getPassword();
 
 					$this->redirect('index', 'home');
 				}
@@ -95,7 +97,7 @@
 			}
 
 			$this->view('Registro', $data);
-		}
+		}*/
 		
 		public function logout()
 		{
@@ -109,14 +111,14 @@
 
 			HS::sesion_no_iniciada($this);
 
-			$user = MUsuario::getDni($_SESSION['user']['dni'])[0];
+			$user = MUsuario::getEmail($_SESSION['user']['email'])[0];
 
 			$data = array(
-				"title"          => "Seguimiento de Resoluciones",
+				"title"          => "Distr. Plas Anthony",
 				"usuario"        => $user,
 				'datos_template' => array(
 					"usuario" => $user,
-					'autor'   => 'Robert BJ HC',
+					'autor'   => 'Sistema',
 					'anio'    => '2016'
 				)
 			);

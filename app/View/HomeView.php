@@ -20,10 +20,10 @@
 		<?= $this->view('Template/Menu', $datos_template);?>
 	</nav>
 	
-	<section>
-		<div class="ed-container" id="cuerpo">
+	<section  id="cuerpo">
+		<div class="ed-container">
 			<div class="ed-item main-center cross-center">
-				<h3>Bienvenido <?= $usuario->getNombre()?>, Al sistema de Seguimiento de Resoluciones</h3>
+				<h3>Bienvenido <?= $usuario->getNombre()?>, Al sistema de Plas Anthony</h3>
 			</div>
 		</div>
 	</section>

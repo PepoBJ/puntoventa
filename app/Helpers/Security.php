@@ -17,7 +17,7 @@
 
 		public static function sesion_iniciada($controller, $uri1 = "index", $uri2 = "index")
 		{
-			if(isset($_SESSION['user']['dni']) && isset($_SESSION['user']['password']))
+			if(isset($_SESSION['user']['email']) && isset($_SESSION['user']['contrasena']))
 			{
 				$controller->redirect($uri1, $uri2);
 			}
@@ -25,7 +25,7 @@
 
 		public static function sesion_no_iniciada($controller, $uri1 = "index", $uri2 = "index")
 		{
-			if(! isset($_SESSION['user']['dni']) || ! isset($_SESSION['user']['password']))
+			if(! isset($_SESSION['user']['email']) || ! isset($_SESSION['user']['contrasena']))
 			{
 				$controller->redirect($uri1, $uri2);
 			}

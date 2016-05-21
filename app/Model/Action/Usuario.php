@@ -16,13 +16,19 @@
 		{
 			$save = $this->runSql(
 				"INSERT INTO usuario (
-					dni,
 					nombre,
-					password
+					apellido,
+					email,
+					contrasena,
+					tipo,
+					estado
 				) VALUES (
-					'" . $usuario->getDni() . "',
 					'" . $usuario->getNombre() . "',
-					'" . $usuario->getPassword() . "'
+					'" . $usuario->getApellido() . "',
+					'" . $usuario->getEmail() . "',
+					'" . $usuario->getContrasena() . "',
+					'" . $usuario->getTipo() . "',
+					'" . $usuario->getEstado() . "'
 				)"
 			);
 
@@ -34,8 +40,12 @@
 			$update = $this->runSql(
 				"UPDATE usuario SET 
 				nombre = '" . $usuario->getNombre() . "',
-				password = '" . $usuario->getPassword() . "' 
-				WHERE dni = '" . $usuario->getDni() . "'"
+				apellido = '" . $usuario->getApellido() . "',
+				email = '" . $usuario->getEmail() . "',
+				contrasena = '" . $usuario->getContrasena() . "',
+				tipo = '" . $usuario->getTipo() . "',
+				estado = '" . $usuario->getEstado() . "' 
+				WHERE email = '" . $usuario->getEmail() . "'"
 			);
 
 			return $update;
@@ -43,7 +53,7 @@
 
 		public function delete(CUsuario $usuario)
 		{
-			$delete = $this->deleteBy("dni", $usuario->getDni());
+			$delete = $this->deleteBy('email', $usuario->getEmail());
 
 			return $delete;
 		}

@@ -27,3 +27,7 @@
 .menu__item:hover {
 	border-bottom: 6px solid #FFF;
 }
+
+#cuerpo {
+	margin: 5em;
+}

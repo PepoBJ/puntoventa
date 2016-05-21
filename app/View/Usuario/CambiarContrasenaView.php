@@ -34,13 +34,13 @@
 						<span class="formulario__item formulario__<?=@$class_mensaje?>"><?=@$mensaje?></span>
 					</div>					
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__password base-100 tablet-50" name="password-old" type="password" placeholder="Contraseña Antigua" required>
+						<input class="formulario__item formulario__password base-100 tablet-50" name="contrasena-old" type="password" placeholder="Contraseña Antigua" required>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__password base-100 tablet-50" name="password-new" type="password" placeholder="Contraseña Nueva" required>
+						<input class="formulario__item formulario__password base-100 tablet-50" name="contrasena-new" type="password" placeholder="Contraseña Nueva" required>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__password base-100 tablet-50" name="password-new-confirm" type="password" placeholder="Repita la Contraseña" required>
+						<input class="formulario__item formulario__password base-100 tablet-50" name="contrasena-new-confirm" type="password" placeholder="Repita la Contraseña" required>
 					</div>
 					<div class="ed-item main-center cross-center">
 						<input class="formulario__item formulario__enviar base-100 tablet-50" type="submit" value="CAMBIAR CONTRASEÑA">

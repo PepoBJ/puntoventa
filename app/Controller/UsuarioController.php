@@ -18,18 +18,19 @@
 
 			HS::sesion_no_iniciada($this);
 
-			$user = MUsuario::getDni($_SESSION['user']['dni'])[0];
+			$user = MUsuario::getEmail($_SESSION['user']['email'])[0];
 			
 			$data = array(
-				"title"          => "Seguimiento de Resoluciones",
+				"title"          => "Dist. Plas Anthony",
 				"mensaje"        => "",
 				"class_mensaje"  => "error",
 				"usuario"        => $user,
-				"dni"            => $user->getDni(),
+				"email"            => $user->getEmail(),
 				"nombre"         => $user->getNombre(),	
+				"apellido"         => $user->getApellido(),
 				'datos_template' => array(
 					"usuario" => $user,
-					'autor'   => 'Robert BJ HC',
+					'autor'   => 'Sistema',
 					'anio'    => '2016'
 				)
 			);
@@ -37,34 +38,37 @@
 
 			if(!empty($_POST) && isset($_POST))
 			{
-				if(md5($_POST['password']) != $user->getPassword())
+				if(md5($_POST['contrasena']) != $user->getContrasena())
 				{
-					$data['dni']    = $_POST['dni'];
+					$data['email']    = $_POST['email'];
 					$data['nombre'] = $_POST['nombre'];
 					$data['mensaje']  = "La contraseña es incorrecta";
 				}
-				elseif($_POST['dni'] != $user->getDni())
+				elseif($_POST['email'] != $user->getEmail())
 				{
-					$data['dni']    = $_POST['dni'];
+					$data['email']    = $_POST['email'];
 					$data['nombre'] = $_POST['nombre'];
-					$data['mensaje']  = "El DNI proporcionado es Incorecto";
+					$data['apellido'] = $_POST['apellido'];
+					$data['mensaje']  = "El Email proporcionado es Incorecto";
 				}
-				elseif(MUsuario::updateUser($_POST['dni'], $_POST['nombre'], $_POST['password']))
+				elseif(MUsuario::updateUser($_POST['email'], $_POST['nombre'], $_POST['apellido'], $_POST['contrasena']))
 				{
-					$user = MUsuario::getDni($_POST['dni'])[0];
+					$user = MUsuario::getEmail($_POST['email'])[0];
 
-					$_SESSION['user']['dni']      = $user->getDni();
-					$_SESSION['user']['password'] = $user->getPassword();
-					$data['usuario']              = $user;
-					$data['dni']                  = $user->getDni();
-					$data['nombre']               = $user->getNombre();
-					$data['mensaje']              = "Se Actualizo la Información";					
-					$data['class_mensaje']        = "exito";					
+					$_SESSION['user']['email']      = $user->getEmail();
+					$_SESSION['user']['contrasena'] = $user->getContrasena();
+					$data['usuario']                = $user;
+					$data['email']                  = $user->getEmail();
+					$data['nombre']                 = $user->getNombre();
+					$data['apellido']               = $user->getApellido();
+					$data['mensaje']                = "Se Actualizo la Información";					
+					$data['class_mensaje']          = "exito";					
 				}
 				else
 				{
-					$data['dni']    = $_POST['dni'];
+					$data['email']    = $_POST['email'];
 					$data['nombre'] = $_POST['nombre'];
+					$data['apellido'] = $_POST['apellido'];
 					$data['mensaje']  = "Ocurrio un Error, Intente Luego";
 				}
 			}
@@ -78,36 +82,36 @@
 
 			HS::sesion_no_iniciada($this);
 
-			$user = MUsuario::getDni($_SESSION['user']['dni'])[0];
+			$user = MUsuario::getEmail($_SESSION['user']['email'])[0];
 			
 			$data = array(
-				"title"          => "Seguimiento de Resoluciones",
+				"title"          => "Dist. Plas Anthony",
 				"mensaje"        => "",
 				"class_mensaje"  => "error",
 				"usuario"        => $user,
 				'datos_template' => array(
 					"usuario" => $user,
-					'autor'   => 'Robert BJ HC',
+					'autor'   => 'Sistema',
 					'anio'    => '2016'
 				)
 			);
 
 			if(!empty($_POST) && isset($_POST))
 			{
-				if(md5($_POST['password-old']) != $user->getPassword())
+				if(md5($_POST['contrasena-old']) != $user->getContrasena())
 				{
 					$data['mensaje']  = "La contraseña antigua es incorrecta";
 				}
-				elseif($_POST['password-new'] != $_POST['password-new-confirm'])
+				elseif($_POST['contrasena-new'] != $_POST['contrasena-new-confirm'])
 				{
 					$data['mensaje']  = "Las contraseñas no coinciden";
 				}
-				elseif(MUsuario::updateUser($user->getDni(), $user->getNombre(), $_POST['password-new']))
+				elseif(MUsuario::updateUser($user->getEmail(), $user->getNombre(), $user->getApellido(), $_POST['contrasena-new']))
 				{
-					$user = MUsuario::getDni($user->getDni())[0];
+					$user = MUsuario::getEmail($user->getEmail())[0];
 
-					$_SESSION['user']['dni']      = $user->getDni();
-					$_SESSION['user']['password'] = $user->getPassword();
+					$_SESSION['user']['dni']      = $user->getEmail();
+					$_SESSION['user']['contrasena'] = $user->getContrasena();
 					$data['mensaje']              = "Se Actualizo la contraseña";					
 					$data['class_mensaje']        = "exito";					
 				}

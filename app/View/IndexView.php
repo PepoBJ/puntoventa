@@ -28,16 +28,13 @@
 						<span class="formulario__item formulario__error"><?=@$error?></span>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__dni base-100 tablet-50" name="dni" type="text" placeholder="DNI" value="<?=$dni?>" maxlength="8" minlength="8" autofocus required>
+						<input class="formulario__item formulario__email base-100 tablet-50" name="email" type="email" placeholder="Email" value="<?=$email?>"  autofocus required>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__password base-100 tablet-50" name="password" type="password" placeholder="Contraseña" required>
+						<input class="formulario__item formulario__password base-100 tablet-50" name="contrasena" type="password" placeholder="Contraseña" required>
 					</div>
 					<div class="ed-item main-center cross-center">
 						<input class="formulario__item formulario__enviar base-100 tablet-50" type="submit" value="ENTRAR">
-					</div>
-					<div class="ed-item main-center cross-center">
-						<a href="<?=$helper->url('index', 'registro')?>" class="formulario__item formulario__registro base-100 tablet-50">Registro</a>
 					</div>
 				</div>
 				</form>
@@ -45,9 +42,6 @@
 		</div>
 	</section>
 
-	<footer>
-		<?= $this->view('Template/Footer', $datos_template);?>
-	</footer>
 	
 	<?=$helper->js('jquery');?>
 	<?=$helper->js('variables-globales');?>

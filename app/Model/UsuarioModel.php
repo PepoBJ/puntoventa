@@ -12,19 +12,19 @@
 		public function __construct()
 		{}
 
-		public static function login($dni, $password)
+		public static function login($email, $contrasena)
 		{
-			$user = self::getDni($dni);
+			$user = self::getEmail($email);
 			
 			if (!isset($user)) return false;
 
 			$user = $user[0];
 			
-			if ($user->getPassword() == md5($password))
+			if ($user->getContrasena() == md5($contrasena))
 			{
 				@session_start();
-				$_SESSION['user']['dni']    = $user->getDni();
-				$_SESSION['user']['password'] = $user->getPassword();
+				$_SESSION['user']['email']    = $user->getEmail();
+				$_SESSION['user']['contrasena'] = $user->getContrasena();
 				return true;
 			}
 
@@ -37,54 +37,62 @@
 			unset($_SESSION['user']);
 		}		
 		
-		public static function getDni($dni)
+		public static function getEmail($email)
 		{
 			$a_usuario = new AUsuario();
 
-			$usuario = $a_usuario->getBy("dni", $dni, self::USUARIO_NAMESPACE);
+			$usuario = $a_usuario->getBy("email", $email, self::USUARIO_NAMESPACE);
 
 			return $usuario;
 		}
 
-		public static function saveUser($dni, $nombre, $password)
+		public static function saveUser($email, $nombre, $apellido, $contrasena, $tipo, $estado)
 		{
 			$c_usuario = new CUsuario();
 			$a_usuario = new AUsuario();
 
-			$c_usuario->setDni($dni);
+			$c_usuario->setEmail($email);
 			$c_usuario->setNombre($nombre);
-			$c_usuario->setPassword($password);
+			$c_usuario->setApellido($apellido);
+			$c_usuario->setEmail($email);
+			$c_usuario->setContrasena($contrasena);
+			$c_usuario->setTipo($tipo);
+			$c_usuario->setEstado($estado);
 			
 			$save_user = $a_usuario->save($c_usuario);
 
 			return $save_user;
 		}
 
-		public static function updateUser($dni, $nombre, $password)
+		public static function updateUser($email, $nombre, $apellido, $contrasena, $tipo = "Normal", $estado = "Activo")
 		{
 			$c_usuario = new CUsuario();
 			$a_usuario = new AUsuario();
 
-			$usuario_existe = self::getDni($dni);
+			$usuario_existe = self::getEmail($email);
 			if (! isset($usuario_existe)) return false;
 
-			$c_usuario->setDni($dni);
+			$c_usuario->setEmail($email);
 			$c_usuario->setNombre($nombre);
-			$c_usuario->setPassword($password);
+			$c_usuario->setApellido($apellido);
+			$c_usuario->setEmail($email);
+			$c_usuario->setContrasena($contrasena);
+			$c_usuario->setTipo($tipo);
+			$c_usuario->setEstado($estado);
 
 			$update_user = $a_usuario->update($c_usuario);
 
 			return $update_user;
 		}
 
-		public static function deleteUser($dni)
+		public static function deleteUser($email)
 		{
 			$a_usuario = new AUsuario();
 			$c_usuario = new CUsuario();
 
-			$c_usuario->setDni($dni);
+			$c_usuario->setEmail($email);
 
-			$usuario_existe= self::getDni($dni);
+			$usuario_existe= self::getEmail($email);
 			if (! isset($usuario_existe)) return false;
 
 			$delete_user = $a_usuario->delete($c_usuario);

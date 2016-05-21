@@ -8,24 +8,12 @@
 		public function __construct()
 		{}
 
-		private $dni;
-
-		public function setDni($dni)
-		{
-			$dni = HS::clean_input($dni);
-
-			$this->dni = $dni;
-		}
-		public function getDni()
-		{
-			return $this->dni;
-		}
 
 		private $nombre;
 		public function setNombre($nombre)
 		{
 			$nombre = HS::clean_input($nombre);
-
+		
 			$this->nombre = $nombre;
 		}
 		public function getNombre()
@@ -33,15 +21,64 @@
 			return $this->nombre;
 		}
 
-		private $password;
-		public function setPassword($password)
+		private $apellido;
+		public function setApellido($apellido)
 		{
-			$password = HS::clean_input($password);
+			$apellido = HS::clean_input($apellido);
+		
+			$this->apellido = $apellido;
+		}
+		public function getApellido()
+		{
+			return $this->apellido;
+		}
 
-			$this->password = md5($password);
-		}
-		public function getPassword()
+		private $email;
+		public function setEmail($email)
 		{
-			return $this->password;
+			$email = HS::clean_input($email);
+		
+			$this->email = $email;
 		}
+		public function getEmail()
+		{
+			return $this->email;
+		}
+
+		private $contrasena;
+		public function setContrasena($contrasena)
+		{
+			$contrasena = HS::clean_input($contrasena);
+		
+			$this->contrasena = md5($contrasena);
+		}
+		public function getContrasena()
+		{
+			return $this->contrasena;
+		}
+
+		private $tipo;
+		public function setTipo($tipo)
+		{
+			$tipo = HS::clean_input($tipo);
+		
+			$this->tipo = $tipo;
+		}
+		public function getTipo()
+		{
+			return $this->tipo;
+		}
+
+		private $estado;
+		public function setEstado($estado)
+		{
+			$estado = HS::clean_input($estado);
+		
+			$this->estado = $estado;
+		}
+		public function getEstado()
+		{
+			return $this->estado;
+		}
+
 	}
