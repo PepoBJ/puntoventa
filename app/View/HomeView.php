@@ -25,6 +25,11 @@
 			<div class="ed-item main-center cross-center">
 				<h3>Bienvenido <?= $usuario->getNombre()?>, Al sistema de Plas Anthony</h3>
 			</div>
+			<?php if($usuario->getTipo() == "Admin"): ?>
+			<div class="ed-item main-center cross-center">
+				<a class="registrar" href="<?=$helper->url('usuario', 'registro')?>">Registrar Nuevo Usuario</a>
+			</div>
+			<?php endif; ?>
 		</div>
 	</section>
 

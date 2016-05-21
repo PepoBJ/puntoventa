@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS usuario (
 
 CREATE TABLE IF NOT EXISTS venta (
   id_venta int(11) NOT NULL ,
-  monto int(11) NOT NULL DEFAULT '0',
-  fecha datetime NOT NULL,
+  monto decimal(10,2) NOT NULL DEFAULT '0',
+  fecha date NOT NULL,
   fk_email_usuario varchar(75) NOT NULL,
   PRIMARY KEY(id_venta),
   FOREIGN KEY (fk_email_usuario) REFERENCES usuario(email)
@@ -62,9 +62,8 @@ CREATE TABLE IF NOT EXISTS venta (
 CREATE TABLE IF NOT EXISTS devolucion (
   id_devolucion int(11) NOT NULL AUTO_INCREMENT,
   motivo varchar(300) NOT NULL,
-  descripcion text NOT NULL,
-  monto int(11) NOT NULL DEFAULT '0',
-  fecha datetime NOT NULL,
+  monto decimal(10,2)  NOT NULL DEFAULT '0',
+  fecha date NOT NULL,
   fk_id_venta int(11) NOT NULL,
   PRIMARY KEY(id_devolucion),
   FOREIGN KEY (fk_id_venta) REFERENCES venta(id_venta)

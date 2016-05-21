@@ -31,3 +31,24 @@
 #cuerpo {
 	margin: 5em;
 }
+
+.registrar {
+	color: steelblue;
+	padding: .5em;
+	border: 1px solid steelblue;
+	border-radius: 3px;
+	transition: all ease-out .5s;
+}
+
+.registrar:hover {
+	box-shadow: 1px 1px 5px rgba(70, 130, 180, 0.73);
+}
+
+.formulario__selector {
+	display: block;
+	color: steelblue;
+	line-height: 2em;
+	padding: .3em;
+	margin: .7em 0;
+	font-size: .9em;
+}

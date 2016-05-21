@@ -60,44 +60,7 @@
 
 		}
 
-		/*public function registro()
-		{
-			session_start();
-
-			HS::sesion_iniciada($this);
-
-			$data = array(
-				"title"          => "Distr. Plas Anthony",
-				"error"          => "",
-				"dni"            => "",
-				"nombre"         => "",
-				'datos_template' => array(
-					'autor' => 'Sistema',
-					'anio'  => '2016'
-				)
-			);
-
-			if(!empty($_POST) && isset($_POST))
-			{
-				if(MUsuario::saveUser($_POST['dni'], $_POST['nombre'], $_POST['contrasena']))
-				{
-					$user = MUsuario::getDni($_POST['dni'])[0];
-
-					$_SESSION['user']['dni']      = $user->getDni();
-					$_SESSION['user']['contrasena'] = $user->getPassword();
-
-					$this->redirect('index', 'home');
-				}
-				else
-				{
-					$data['dni']    = $_POST['dni'];
-					$data['nombre'] = $_POST['nombre'];
-					$data['error']  = "El DNI ya fue registrado";
-				}
-			}
-
-			$this->view('Registro', $data);
-		}*/
+		
 		
 		public function logout()
 		{
