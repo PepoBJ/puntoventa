@@ -52,3 +52,65 @@
 	margin: .7em 0;
 	font-size: .9em;
 }
+
+.texto {
+	color: steelblue;
+	text-transform: uppercase;
+}
+
+
+.reporte__tabla {
+	width: 100%;
+}
+
+.reporte__tabla td {
+	border: 1px solid steelblue;
+}
+
+.tabla__titulos {
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: steelblue;
+	color: #FFF;
+	line-height: 2;
+}
+
+.tabla__items td {
+	padding: .5em;
+	color: steelblue;
+}
+
+.tabla__total td {
+	color: #FFF;
+}
+
+.tabla__total {
+	font-weight: bold;
+	text-align: center;
+	background: steelblue;
+}
+
+.exportar_link {
+	margin-bottom: 5em;
+	margin-top: 1em;
+}
+
+.exportar_link a {
+	background: steelblue;
+	color: #FFF;
+	padding: .5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+.titulo__tabla {
+	color:steelblue;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	border-bottom: 1px solid steelblue;
+	padding-bottom: .5em;
+	margin-bottom: 2em;
+}

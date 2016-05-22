@@ -23,7 +23,7 @@
 	<section  id="cuerpo">
 		<div class="ed-container">
 			<div class="ed-item main-center cross-center">
-				<h3>Bienvenido <?= $usuario->getNombre()?>, Al sistema de Plas Anthony</h3>
+				<h3 class="texto">Bienvenido <?= $usuario->getNombre()?>, Al sistema de Plas Anthony</h3>
 			</div>
 			<?php if($usuario->getTipo() == "Admin"): ?>
 			<div class="ed-item main-center cross-center">

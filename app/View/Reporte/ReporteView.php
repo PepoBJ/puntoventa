@@ -50,6 +50,39 @@
 				</form>
 			</div>
 		</div>
+
+		<?php if(isset($reporte)):?>
+			<div class="ed-container">
+				<div class="ed-item">
+					<h2 class="titulo__tabla"><?=$titulo_tabla?></h2>
+				</div>
+				<div class="ed-item">					
+					<table class="reporte__tabla">
+					    <tr class="tabla__titulos">
+					    	<?php foreach($cabezeras as $cabezera): ?>
+					    		<td><?=$cabezera?></td>
+							<?php endforeach; ?>
+					    </tr>
+
+				      	<?php foreach($reporte as $item_reporte): ?>
+					    	<tr class="tabla__items">
+					      		<?php foreach($cabezeras as $cabezera): ?>
+						    		<td><?=$item_reporte->$cabezera?></td>
+								<?php endforeach; ?>
+					    	</tr>
+						<?php endforeach; ?>
+						<tr class="tabla__total tabla__items">
+							<td>TOTAL</td>
+							<td colspan="7"><?=$reporte[0]->total?></td>
+						</tr>
+					</table> 
+				</div>
+				<div class="ed-item exportar_link main-end">
+					<a href="<?=$helper->url('reporte', 'render/' . $link_reporte)?>">Exportar EXCEL</a>
+				</div>
+			</div>
+		<?php endif; ?>
+
 	</section>
 
 	<footer>

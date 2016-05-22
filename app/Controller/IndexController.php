@@ -9,7 +9,6 @@
 		
 		public function index()
 		{
-			
 			session_start();
 
 			HS::sesion_iniciada($this, 'index', 'home');
@@ -46,7 +45,6 @@
 			{
 				if(MUsuario::login($_POST['email'], $_POST['contrasena']))
 				{
-					var_dump("ho");
 					$this->redirect('index', 'home');
 				}
 				else

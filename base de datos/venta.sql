@@ -68,3 +68,8 @@ CREATE TABLE IF NOT EXISTS devolucion (
   PRIMARY KEY(id_devolucion),
   FOREIGN KEY (fk_id_venta) REFERENCES venta(id_venta)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+
+INSERT INTO `usuario` (`email`, `nombre`, `apellido`, `contrasena`, `tipo`, `estado`) VALUES ('admin@admin.com', 'Administrador', 'Administrador', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Activo');
