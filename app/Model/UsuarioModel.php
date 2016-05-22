@@ -25,6 +25,7 @@
 				@session_start();
 				$_SESSION['user']['email']    = $user->getEmail();
 				$_SESSION['user']['contrasena'] = $user->getContrasena();
+				$_SESSION['user']['tipo'] = $user->getTipo();
 				return true;
 			}
 

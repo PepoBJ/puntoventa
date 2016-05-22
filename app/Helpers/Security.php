@@ -30,6 +30,14 @@
 				$controller->redirect($uri1, $uri2);
 			}
 		}
+
+		public static function session_no_iniciada_administrador($controller, $uri1 = "index", $uri2 = "index")
+		{
+			if(! isset($_SESSION['user']['email']) || ! isset($_SESSION['user']['contrasena']) || ! isset($_SESSION['user']['tipo']) || $_SESSION['user']['tipo'] != "Admin")
+			{
+				$controller->redirect($uri1, $uri2);
+			}
+		}
 	}
 
 /*		FIN CLASS HELPERS SECURITY		*/

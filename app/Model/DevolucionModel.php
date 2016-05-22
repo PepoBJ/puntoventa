@@ -12,6 +12,12 @@
 		public function __construct()
 		{}
 
+
+		public static function reporte($fecha_ini, $fecha_fin)
+		{
+			$a_devolucion = new ADevolucion();
+			return $a_devolucion->reporte($fecha_ini, $fecha_fin);
+		}
 		
 		public static function getId($id)
 		{

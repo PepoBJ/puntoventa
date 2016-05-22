@@ -130,8 +130,8 @@
 		public function registro()
 		{
 			session_start();
-
-			HS::sesion_no_iniciada($this);
+			
+			HS::session_no_iniciada_administrador($this);
 
 			$user = MUsuario::getEmail($_SESSION['user']['email'])[0];
 			$data = array(

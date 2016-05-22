@@ -13,6 +13,12 @@
 		{}
 
 		
+		public static function reporte($fecha_ini, $fecha_fin)
+		{
+			$a_venta = new AVenta();
+			return $a_venta->reporte($fecha_ini, $fecha_fin);
+		}
+
 		public static function getId($id)
 		{
 			$a_venta = new AVenta();
