@@ -39,6 +39,13 @@
 
 		    $indice = 1;
 		    $letra_ascii = 65;
+		    $cell_name = chr($letra_ascii) . $indice;
+
+		    $objPHPExcel->setActiveSheetIndex(0)
+		            ->setCellValue($cell_name, $data['titulo_reporte']);
+		    $objPHPExcel->getActiveSheet()->getStyle("$cell_name:$cell_name")->getFont()->setBold(true);
+
+		    $indice = 3;
 
 	        foreach($data['cabezeras'] as $cabezera)
 	        {
@@ -75,6 +82,14 @@
 		       	$indice ++;
 	        }
 
+	        $indice ++;
+	        $letra_ascii = 65;
+		    $cell_name = chr($letra_ascii) . $indice;
+
+		    $objPHPExcel->setActiveSheetIndex(0)
+		            ->setCellValue($cell_name, "TOTAL: " . $data['informacion'][0]->total);
+		    $objPHPExcel->getActiveSheet()->getStyle("$cell_name:$cell_name")->getFont()->setBold(true);
+		    
 
 	        $objPHPExcel->getActiveSheet()->setTitle($data['nombre_hoja']);
 			$objPHPExcel->setActiveSheetIndex(0);

@@ -38,6 +38,22 @@
 				)
 			);
 
+			if(!empty($_POST) && isset($_POST))
+			{
+				if(MVenta::saveVenta($_POST['codigo'], $_POST['monto'], $_SESSION['user']['email']))
+				{
+					
+					$data['mensaje']              = "Venta Registrada Correctamente";					
+					$data['class_mensaje']        = "exito";	
+				}
+				else
+				{
+					$data['codigo']    = $_POST['codigo'];
+					$data['monto'] = $_POST['monto'];
+					$data['mensaje']  = "La Venta no fue registrada";
+				}
+			}
+
 			$this->view('Venta/Venta', $data);
 		}
 

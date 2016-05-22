@@ -54,7 +54,7 @@
 		public function reporte($fecha_ini, $fecha_fin)
 		{
 			$reporte = $this->runSql(
-				"SELECT id_venta as codigo_boleta, monto, fecha, fk_email_usuario as usuario FROM venta WHERE fecha BETWEEN '" . $fecha_ini . "' AND '" . $fecha_fin
+				"SELECT id_venta as codigo_boleta, monto, fecha, fk_email_usuario as usuario, (select sum(monto) from venta ) as total FROM venta WHERE fecha BETWEEN '" . $fecha_ini . "' AND '" . $fecha_fin
 				 ."'"
 			);
 
