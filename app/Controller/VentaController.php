@@ -56,41 +56,4 @@
 
 			$this->view('Venta/Venta', $data);
 		}
-
-
-		public function render()
-		{
-			$obj = new stdClass();
-			$obj->nombre = "Nick";
-			$obj->apellido = "Doe";
-
-			$obj2 = new stdClass();
-			$obj2->nombre = "Nick2";
-			$obj2->apellido = "Doe2";
-
-			$data = array(
-				"creador"=> "Sistema Venta Plas Anthony",
-				"titulo"=> "Reporte de Sistema",
-				"asunto"=> "Reporte de Sistema",
-				"descripcion"=> "Reporte de Sistema",
-				"palabras_clave"=> "Reporte Sistema",
-				"categoria"=> "Reporte",
-				"nombre_hoja"=> "Reporte Diario",
-				"nombre_archivo"=> "ReporteDiario",
-				"cabezeras" => array(
-					"motivo",
-					"monto",
-					"fecha",
-					"codigo_boleta"
-				),
-				"informacion" => MDevolucion::reporte('2016-05-21', '2016-05-21')
-			);
-			MExcel::render($data);
-
-		}
-
-		public function hola()
-		{
-			echo "<a href='/venta/render'>descargar</a>";
-		}
 	}
