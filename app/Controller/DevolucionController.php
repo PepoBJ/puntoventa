@@ -2,6 +2,7 @@
 
 	use App\Core\ControladorBase;
 	use App\Model\DevolucionModel as MDevolucion;
+	use App\Model\VentaModel as MVenta;
 	use App\Model\UsuarioModel as MUsuario;
 	use App\Model\ExcelModel as MExcel;
 	use App\Helpers\Security as HS;
@@ -40,18 +41,37 @@
 
 			if(!empty($_POST) && isset($_POST))
 			{
-				if(MDevolucion::saveDevolucion($_POST['motivo'], $_POST['monto'], $_POST['codigo']))
+				$venta = MVenta::getId($_POST['codigo']);
+				$data['codigo']    = $_POST['codigo'];
+				$data['monto'] = $_POST['monto'];
+				$data['motivo'] = $_POST['motivo'];
+
+				if (isset($venta))
 				{
-					
-					$data['mensaje']              = "Devolucion Registrada Correctamente";					
-					$data['class_mensaje']        = "exito";	
+
+					if($venta->getMonto() >= $_POST['monto'])
+					{
+						$venta->setMonto($venta->getMonto() - $_POST['monto']);
+
+						if(MVenta::updateVenta($venta->getIdVenta(), $venta->getMonto(), $venta->getFkEmailUsuario()) && MDevolucion::saveDevolucion($_POST['motivo'], $_POST['monto'], $_POST['codigo']))
+						{
+							
+							$data['mensaje']              = "Devolucion Registrada Correctamente";					
+							$data['class_mensaje']        = "exito";	
+						}
+						else
+						{
+							$data['mensaje']  = "La Devolucion no fue registrada";
+						}
+					}
+					else
+					{
+						$data['mensaje'] = "El monto a devolver es mayor al de venta";
+					}
 				}
 				else
 				{
-					$data['codigo']    = $_POST['codigo'];
-					$data['monto'] = $_POST['monto'];
-					$data['motivo'] = $_POST['motivo'];
-					$data['mensaje']  = "La Devolucion no fue registrada";
+					$data['mensaje'] = "No se encontro la boleta con ese código";
 				}
 			}
 
