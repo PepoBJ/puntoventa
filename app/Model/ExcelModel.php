@@ -95,7 +95,7 @@
 			$objPHPExcel->setActiveSheetIndex(0);
 
 			header('Content-Type: application/vnd.ms-excel');
-			header('Content-Disposition: attachment;filename="' . $data['nombre_archivo'] . '.xlsx"');
+			header('Content-Disposition: attachment;filename="' . $data['nombre_archivo'] . '.xls"');
 			header('Cache-Control: max-age=0');
 			 
 			$objWriter=PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel5');

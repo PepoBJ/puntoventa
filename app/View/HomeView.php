@@ -28,6 +28,7 @@
 			<?php if($usuario->getTipo() == "Admin"): ?>
 			<div class="ed-item main-center cross-center">
 				<a class="registrar" href="<?=$helper->url('usuario', 'registro')?>">Registrar Nuevo Usuario</a>
+				<a class="registrar" href="<?=$helper->url('vendedor', 'nuevo')?>">Registrar Nuevo Usuario</a>
 			</div>
 			<?php endif; ?>
 		</div>

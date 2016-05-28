@@ -38,6 +38,7 @@
 	border: 1px solid steelblue;
 	border-radius: 3px;
 	transition: all ease-out .5s;
+	margin: .5em;
 }
 
 .registrar:hover {
