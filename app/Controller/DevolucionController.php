@@ -41,10 +41,28 @@
 
 			if(!empty($_POST) && isset($_POST))
 			{
+
 				$venta = MVenta::getId($_POST['codigo']);
 				$data['codigo']    = $_POST['codigo'];
 				$data['monto'] = $_POST['monto'];
 				$data['motivo'] = $_POST['motivo'];
+
+				if(!isset($venta))
+				{
+					$porboleta = MVenta::getByCodBoleta($_POST['codigo']);
+					$porfactura = MVenta::getByCodFactura($_POST['codigo']);
+
+					if(isset($porboleta))
+					{
+						$venta = $porboleta[0];
+						$_POST['codigo'] = $venta->getIdVenta();
+					}
+					elseif(isset($porfactura))
+					{
+						$venta = $porfactura[0];
+						$_POST['codigo'] = $venta->getIdVenta();
+					}
+				}
 
 				if (isset($venta))
 				{
@@ -53,7 +71,7 @@
 					{
 						$venta->setMonto($venta->getMonto() - $_POST['monto']);
 
-						if(MVenta::updateVenta($venta->getIdVenta(), $venta->getMonto(), $venta->getFkEmailUsuario()) && MDevolucion::saveDevolucion($_POST['motivo'], $_POST['monto'], $_POST['codigo']))
+						if(MVenta::updateVenta($venta->getIdVenta(), $venta->getMonto(), $venta->getFkEmailUsuario(), $venta->getDniVendedor(), $venta->getCodBoleta(), $venta->getCodFactura()) && MDevolucion::saveDevolucion($_POST['motivo'], $_POST['monto'], $_POST['codigo']))
 						{
 							
 							$data['mensaje']              = "Devolucion Registrada Correctamente";					

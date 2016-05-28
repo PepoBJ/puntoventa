@@ -32,10 +32,25 @@
 						<span class="formulario__item formulario__<?=@$class_mensaje?>"><?=@$mensaje?></span>
 					</div>
 					<div class="ed-item main-center cross-center">
-						<input class="formulario__item formulario__dni base-100 tablet-50" name="codigo" type="text" placeholder="Codigo Boleta" value="<?=$codigo?>" required>
+						<input class="formulario__item formulario__dni base-100 tablet-50" name="codigo" type="text" placeholder="Codigo Proforma" value="<?=$codigo?>" required>
 					</div>
 					<div class="ed-item main-center cross-center">
 						<input class="formulario__item formulario__nombre base-100 tablet-50" name="monto" type="text" placeholder="Monto" value="<?=$monto?>" required>
+					</div>
+					<div class="ed-item main-center cross-center">
+						<input class="formulario__item formulario__nombre base-100 tablet-50" name="cod_boleta" type="text" placeholder="Codigo Boleta" value="<?=$cod_boleta?>" >
+					</div>
+					<div class="ed-item main-center cross-center">
+						<input class="formulario__item formulario__nombre base-100 tablet-50" name="cod_factura" type="text" placeholder="Codigo Factura" value="<?=$cod_factura?>" >
+					</div>
+					<div class="ed-item main-center cross-center">
+						<select class="formulario__item formulario__nombre base-100 tablet-50" name="vendedor" required>
+							<?php if( isset($vendedores)): ?>
+								<?php foreach($vendedores as $vendedor): ?>
+									<option value="<?=$vendedor->getDni()?>"><?=$vendedor->getNombre()?> <?=$vendedor->getApellido()?></option>
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</select>
 					</div>
 					<div class="ed-item main-center cross-center">
 						<input class="formulario__item formulario__enviar base-100 tablet-50" type="submit" value="REGISTRAR VENTA">

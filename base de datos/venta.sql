@@ -22,6 +22,12 @@ SET time_zone = "+00:00";
 -- Base de datos: venta
 --
 --
+CREATE TABLE IF NOT EXISTS vendedor (
+  dni char(8) NOT NULL,
+  nombre varchar(100) NOT NULL,
+  apellido varchar(100) NOT NULL,
+  PRIMARY KEY(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 -- Estructura de tabla para la tabla usuario
 --
 
@@ -47,9 +53,13 @@ CREATE TABLE IF NOT EXISTS venta (
   id_venta int(11) NOT NULL ,
   monto decimal(10,2) NOT NULL DEFAULT '0',
   fecha date NOT NULL,
+  dni_vendedor char(8) NOT NULL,
   fk_email_usuario varchar(75) NOT NULL,
+  cod_boleta varchar(20) NULL UNIQUE,
+  cod_factura varchar(20) NULL UNIQUE,
   PRIMARY KEY(id_venta),
-  FOREIGN KEY (fk_email_usuario) REFERENCES usuario(email)
+  FOREIGN KEY (fk_email_usuario) REFERENCES usuario(email),
+  FOREIGN KEY (dni_vendedor) REFERENCES vendedor(dni)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
@@ -70,6 +80,18 @@ CREATE TABLE IF NOT EXISTS devolucion (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
+CREATE TABLE IF NOT EXISTS gasto__externo (
+  id_gasto int(11) NOT NULL ,
+  nombre varchar (300) NOT NULL,
+  motivo  varchar(300) NOT NULL,
+  monto decimal(10,2) NOT NULL DEFAULT '0',
+  fecha date NOT NULL,
+  fk_email_usuario varchar(75) NOT NULL,
+  PRIMARY KEY(id_gasto),
+  FOREIGN KEY (fk_email_usuario) REFERENCES usuario(email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
 
 
 INSERT INTO `usuario` (`email`, `nombre`, `apellido`, `contrasena`, `tipo`, `estado`) VALUES ('admin@admin.com', 'Administrador', 'Administrador', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Activo');
+

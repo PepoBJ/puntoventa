@@ -58,8 +58,8 @@
         {
             $query = $this
                         ->db
-                        ->query("SELECT * FROM $this->table ORDER BY id_$this->table DESC");
-
+                        ->query("SELECT * FROM $this->table");
+                        
             while ($row = $query->fetch_object($class_name)) 
             {
                $resultSet[] = $row;

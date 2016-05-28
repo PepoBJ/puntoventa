@@ -27,8 +27,24 @@
 
 			return $venta;
 		}
+		public static function getByCodBoleta($cod_boleta)
+		{
+			$a_venta = new AVenta();
 
-		public static function saveVenta($id_venta, $monto, $fk_email_usuario)
+			$venta = $a_venta->getBy('cod_boleta', $cod_boleta, self::VENTA_NAMESPACE);
+
+			return $venta;
+		}
+		public static function getByCodFactura($cod_factura)
+		{
+			$a_venta = new AVenta();
+
+			$venta = $a_venta->getBy('cod_factura', $cod_factura, self::VENTA_NAMESPACE);
+
+			return $venta;
+		}
+
+		public static function saveVenta($id_venta, $monto, $fk_email_usuario, $dni_vendedor, $cod_boleta = NULL, $cod_factura = NULL)
 		{
 			$c_venta = new CVenta();
 			$a_venta = new AVenta();
@@ -38,13 +54,16 @@
 			$c_venta->setFkEmailUsuario($fk_email_usuario);
 			$fecha = getDate();
 			$c_venta->setFecha($fecha['year'].'-'.$fecha['mon'].'-'.$fecha['mday']);
+			$c_venta->setCodBoleta($cod_boleta);
+			$c_venta->setCodFactura($cod_factura);
+			$c_venta->setDniVendedor($dni_vendedor);
 
 			$save_venta = $a_venta->save($c_venta);
 
 			return $save_venta;
 		}
 
-		public static function updateVenta($id_venta, $monto, $fk_email_usuario)
+		public static function updateVenta($id_venta, $monto, $fk_email_usuario, $dni_vendedor, $cod_boleta = NULL, $cod_factura = NULL)
 		{
 			$c_venta = new CVenta();
 			$a_venta = new AVenta();
@@ -56,6 +75,10 @@
 			$c_venta->setMonto($monto);
 			$c_venta->setFkEmailUsuario($fk_email_usuario);
 			$c_venta->setFecha($venta_existe->getFecha());
+
+			$c_venta->setCodBoleta($cod_boleta);
+			$c_venta->setCodFactura($cod_factura);
+			$c_venta->setDniVendedor($dni_vendedor);
 			
 			$update_venta = $a_venta->update($c_venta);
 

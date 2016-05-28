@@ -2,9 +2,9 @@
 
 	use App\Core\ControladorBase;
 	use App\Model\VentaModel as MVenta;
+	use App\Model\VendedorModel as MVendedor;
 	use App\Model\DevolucionModel as MDevolucion;
 	use App\Model\UsuarioModel as MUsuario;
-	use App\Model\ExcelModel as MExcel;
 	use App\Helpers\Security as HS;
 	use stdClass;
 
@@ -30,6 +30,9 @@
 				"class_mensaje"  => "error",
 				"codigo" => "",
 				"monto" => "",
+				"cod_boleta" => "",
+				"cod_factura" => "",
+				"vendedores" => MVendedor::getAll(),
 				"usuario"        => $user,
 				'datos_template' => array(
 					"usuario" => $user,
@@ -40,7 +43,10 @@
 
 			if(!empty($_POST) && isset($_POST))
 			{
-				if(MVenta::saveVenta($_POST['codigo'], $_POST['monto'], $_SESSION['user']['email']))
+				$cod_boleta = $_POST['cod_boleta'] == "" ? NULL : $_POST['cod_boleta'];
+				$cod_factura = $_POST['cod_factura'] == "" ? NULL : $_POST['cod_factura'];
+
+				if(MVenta::saveVenta($_POST['codigo'], $_POST['monto'], $_SESSION['user']['email'], $_POST['vendedor'], $cod_boleta, $cod_factura))
 				{
 					
 					$data['mensaje']              = "Venta Registrada Correctamente";					

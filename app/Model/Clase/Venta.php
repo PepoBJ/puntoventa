@@ -56,4 +56,40 @@
 			return $this->fk_email_usuario;
 		}
 
+		private $cod_boleta;
+		public function setCodBoleta($cod_boleta)
+		{
+			$cod_boleta = HS::clean_input($cod_boleta);
+		
+			$this->cod_boleta = $cod_boleta;
+		}
+		public function getCodBoleta()
+		{
+			return $this->cod_boleta;
+		}
+
+		private $cod_factura;
+		public function setCodFactura($cod_factura)
+		{
+			$cod_factura = HS::clean_input($cod_factura);
+		
+			$this->cod_factura = $cod_factura;
+		}
+		public function getCodFactura()
+		{
+			return $this->cod_factura;
+		}
+
+		private $dni_vendedor;
+		public function setDniVendedor($dni_vendedor)
+		{
+			$dni_vendedor = HS::clean_input($dni_vendedor);
+		
+			$this->dni_vendedor = $dni_vendedor;
+		}
+		public function getDniVendedor()
+		{
+			return $this->dni_vendedor;
+		}
+
 	}

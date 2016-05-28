@@ -46,7 +46,8 @@
 						"codigo_boleta",
 						"monto",
 						"fecha",
-						"usuario"
+						"usuario",
+						"vendedor"
 					);
 					$reporte = MVenta::reporte($_POST['fecha_ini'], $_POST['fecha_fin']);					
 					
@@ -62,7 +63,6 @@
 					$reporte = MDevolucion::reporte($_POST['fecha_ini'], $_POST['fecha_fin']);
 
 				}
-
 				if(isset($reporte) && (is_array($reporte) || is_object($reporte)))
 				{
 					if(is_object($reporte))
@@ -115,7 +115,8 @@
 					"codigo_boleta",
 					"monto",
 					"fecha",
-					"usuario"
+					"usuario",
+					"vendedor"
 				);
 				$reporte = MVenta::reporte($fecha_ini, $fecha_fin);					
 				
