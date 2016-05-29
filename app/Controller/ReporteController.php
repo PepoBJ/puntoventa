@@ -332,11 +332,7 @@
 				"vendedor"
 			);
 			
-			if(
-				(isset($reporte_ventas) && (is_array($reporte_ventas) || is_object($reporte_ventas))) &&
-				(isset($reporte_devolucion) && (is_array($reporte_devolucion) || is_object($reporte_devolucion))) &&
-				(isset($reporte_gastos) && (is_array($reporte_gastos) || is_object($reporte_gastos)))
-			)
+			if((isset($reporte_ventas) && (is_array($reporte_ventas) || is_object($reporte_ventas))) )
 			{
 				if(is_object($reporte_ventas))
 				{
@@ -353,7 +349,29 @@
 
 				$data['titulo_tabla'] = $fecha_hoy;
 				$data['reporte_ventas'] = $reporte_ventas;
+				
+			}
+
+			if((isset($reporte_devolucion) && (is_array($reporte_devolucion) || is_object($reporte_devolucion))) )
+			{
+				if(is_object($reporte_devolucion))
+				{
+					$reporte_devolucion = array($reporte_devolucion);
+				}
+
+				$data['titulo_tabla'] = $fecha_hoy;
 				$data['reporte_devoluciones'] = $reporte_devolucion;
+				
+			}
+
+			if((isset($reporte_gastos) && (is_array($reporte_gastos) || is_object($reporte_gastos))))
+			{
+				if(is_object($reporte_gastos))
+				{
+					$reporte_gastos = array($reporte_gastos);
+				}
+
+				$data['titulo_tabla'] = $fecha_hoy;
 				$data['reporte_gastos'] = $reporte_gastos;
 				
 			}
