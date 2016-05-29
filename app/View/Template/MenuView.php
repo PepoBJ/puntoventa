@@ -6,7 +6,7 @@
 		<a href="<?=$helper->url('venta','nuevo')?>" class="menu__item menu__tipo__resolucion">Venta</a>
 	</div>
 	<div class="ed-item base-1-6 cross-center tablet-end main-center centrar-texto">
-		<a href="<?=$helper->url('gastos','nuevo')?>" class="menu__item menu__tipo__resolucion">Gastos</a>
+		<a href="<?=$helper->url('venta','nuevo')?>" class="menu__item menu__tipo__resolucion">Gastos</a>
 	</div>
 	<div class="ed-item base-1-6 cross-center tablet-end main-center centrar-texto">
 		<a href="<?=$helper->url('devolucion','nuevo')?>" class="menu__item menu__area">Devolucion</a>
