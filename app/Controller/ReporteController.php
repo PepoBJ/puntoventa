@@ -283,8 +283,8 @@
 				}
 
 				$data['reporte'] = $reporte;
-				$data['titulo_tabla'] = "TOP VENDEDORES DEL MES DE " . HS::getMes($fecha['mon']);
 			}
+			$data['titulo_tabla'] = "TOP VENDEDORES DEL MES DE " . HS::getMes($fecha['mon']);
 			
 			$dataPdf = $this->renderView('Reporte/PDFReporte', $data);
 			
@@ -375,7 +375,7 @@
 				$data['reporte_gastos'] = $reporte_gastos;
 				
 			}
-			
+			$data['titulo_tabla'] = $fecha_hoy;
 			$dataPdf = $this->renderView('Reporte/PDFReporte', $data);
 			
 			MPDF::generar("reporteDiario-" .($fecha_hoy), $dataPdf);

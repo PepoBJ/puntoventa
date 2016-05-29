@@ -166,6 +166,12 @@
 					</table> 
 				</div>
 			</div>
+		<?php else: ?>
+			<div class="ed-container">
+				<div class="ed-item">
+					<h2 class="titulo__tabla">No hay datos para mostrar. =)</h2>
+				</div>
+			</div>
 		<?php endif; ?>
 		<?php endif; ?>
 	</section>
