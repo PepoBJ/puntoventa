@@ -1,0 +1,19 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box; 
+  font-family: monospace;}
+
+body {
+  margin: 0;
+  font-family: monospace; }
+
+
+.titulo_central {
+	margin-bottom: 3em;
+	border-bottom-width: 5px;
+}
+
+table {
+	margin-bottom: 6em;
+}

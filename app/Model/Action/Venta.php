@@ -65,13 +65,6 @@
 			return $delete;
 		}
 
-		public function reporte($fecha_ini, $fecha_fin)
-		{
-			$reporte = $this->runSql(
-				"SELECT id_venta as codigo_boleta, monto, fecha, fk_email_usuario as usuario, concat(v.nombre, ' ', v.apellido) as vendedor, (select sum(monto) from venta ) as total FROM venta ve INNER JOIN vendedor v ON ve.dni_vendedor = v.dni WHERE fecha BETWEEN '" . $fecha_ini . "' AND '" . $fecha_fin
-				 ."'"
-			);
-			return $reporte;
-		}
+		
 
 	}

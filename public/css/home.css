@@ -100,6 +100,7 @@
 .exportar_link a {
 	background: steelblue;
 	color: #FFF;
+	margin: .5em;
 	padding: .5em;
 	text-transform: uppercase;
 	font-weight: bold;

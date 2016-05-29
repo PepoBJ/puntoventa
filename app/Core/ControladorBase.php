@@ -31,6 +31,16 @@
         
         /*    **    */
 
+        public function renderView($vista, $datos = array())
+        {
+            ob_start();
+            extract($datos);
+            $helper = new HelpersView();
+            include '../app/View/' . $vista . 'View.php';
+            return ob_get_clean();
+
+        }
+
         /*        REDIRECCIONAMIENTO DINAMICO         */
         
         public function redirect($controlador = "", $accion = "", $args = NULL)

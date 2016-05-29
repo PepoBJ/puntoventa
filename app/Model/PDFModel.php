@@ -20,10 +20,9 @@
 
 		}
 
-		public static function render($file, $html)
+		public static function generar($file, $html)
 		{
 			static::configure();
-
 			$dompdf = new Dompdf();
 
 			$dompdf->load_html($html);

@@ -12,6 +12,26 @@
 			
 			return $data;
 		}
+
+		public static function getMes($n_mes)
+		{
+			$meses = array(
+				"Enero",
+				"Febrero",
+				"Marzo",
+				"Abril",
+				"Mayo",
+				"Junio",
+				"Julio",
+				"Agosto",
+				"Setiembre",
+				"Octubre",
+				"Noviembre",
+				"Diciembre"
+			);
+
+			return $meses[$n_mes-1];
+		}
 		
 		/*	**	*/
 

@@ -41,10 +41,15 @@
 						 <select class="formulario__selector base-100 tablet-50" name="tipo">
 							<option value="venta">Venta</option>
 							<option value="devolucion">Devolucion</option>
+							<option value="gasto">Gasto</option>
 						</select> 
 					</div>
 					<div class="ed-item main-center cross-center">
 						<input class="formulario__item formulario__enviar base-100 tablet-50" type="submit" value="GENERAR REPORTE">
+					</div>
+					<div class="ed-item main-center cross-center">
+						<a class="registrar" href="<?=$helper->url('reporte', 'diario')?>">Reporte Diario</a>
+						<a class="registrar" href="<?=$helper->url('reporte', 'vendedor')?>">Mejor Vendedor</a>
 					</div>
 				</div>
 				</form>
@@ -79,6 +84,7 @@
 				</div>
 				<div class="ed-item exportar_link main-end">
 					<a href="<?=$helper->url('reporte', 'render/' . $link_reporte)?>">Exportar EXCEL</a>
+					<a href="<?=$helper->url('reporte', 'renderPDF/' . $link_reporte)?>">Exportar PDF</a>
 				</div>
 			</div>
 		<?php endif; ?>

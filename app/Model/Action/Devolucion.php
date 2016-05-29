@@ -52,14 +52,6 @@
 			return $delete;
 		}
 
-		public function reporte($fecha_ini, $fecha_fin)
-		{
-			$reporte = $this->runSql(
-				"SELECT motivo, monto, fecha, fk_id_venta as codigo_boleta, (select sum(monto) from devolucion ) as total FROM devolucion WHERE fecha BETWEEN '" . $fecha_ini . "' AND '" . $fecha_fin
-				 ."'"
-			);
-
-			return $reporte;
-		}
+		
 
 	}

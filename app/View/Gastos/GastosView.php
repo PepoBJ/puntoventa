@@ -26,7 +26,7 @@
 				<form class="formulario" action="<?= $helper->url('gastos', 'nuevo');?>" method="post" name="registro">
 				<div class="ed-container">
 					<div class="ed-item main-center cross-center">
-						<h1 class="formulario__item formulario__titulo">NUEVA GASTO</h1>
+						<h1 class="formulario__item formulario__titulo">NUEVO GASTO</h1>
 					</div>
 					<div class="ed-item main-center cross-center">
 						<span class="formulario__item formulario__<?=@$class_mensaje?>"><?=@$mensaje?></span>
