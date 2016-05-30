@@ -1,6 +1,7 @@
 *,
 *:before,
 *:after {
+	font-size: 0.95em;
   box-sizing: border-box; 
   font-family: monospace;}
 
