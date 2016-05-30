@@ -51,7 +51,7 @@
 					$data['apellido'] = $_POST['apellido'];
 					$data['mensaje']  = "El Email proporcionado es Incorecto";
 				}
-				elseif(MUsuario::updateUser($_POST['email'], $_POST['nombre'], $_POST['apellido'], $_POST['contrasena']))
+				elseif(MUsuario::updateUser($_POST['email'], $_POST['nombre'], $_POST['apellido'], $_POST['contrasena'], $user->getTipo()))
 				{
 					$user = MUsuario::getEmail($_POST['email'])[0];
 

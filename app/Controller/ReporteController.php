@@ -45,7 +45,9 @@
 				if($_POST['tipo'] == "venta")	
 				{
 					$data['cabezeras'] = array(
-						"codigo_boleta",
+						"codigo",
+						"cod_boleta",
+						"cod_factura",
 						"monto",
 						"fecha",
 						"usuario",
@@ -122,7 +124,9 @@
 			if($tipo == "venta")	
 			{
 				$data['cabezeras'] = array(
-					"codigo_boleta",
+					"codigo",
+					"cod_boleta",
+					"cod_factura",
 					"monto",
 					"fecha",
 					"usuario",
@@ -205,7 +209,9 @@
 			if($tipo == "venta")	
 			{
 				$data_excel['cabezeras'] = array(
-					"codigo_boleta",
+					"codigo",
+					"cod_boleta",
+					"cod_factura",
 					"monto",
 					"fecha",
 					"usuario",
@@ -325,7 +331,9 @@
 				"motivo"
 			);
 			$data['cabezeras_ventas'] = array(
-				"codigo_boleta",
+				"codigo",
+				"cod_boleta",
+				"cod_factura",
 				"monto",
 				"fecha",
 				"usuario",

@@ -49,6 +49,8 @@
 								<?php foreach($vendedores as $vendedor): ?>
 									<option value="<?=$vendedor->getDni()?>"><?=$vendedor->getNombre()?> <?=$vendedor->getApellido()?></option>
 								<?php endforeach; ?>
+							<?php else: ?>
+								<option value="null">No hay vendedores</option>
 							<?php endif; ?>
 						</select>
 					</div>
