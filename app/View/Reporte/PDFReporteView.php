@@ -159,10 +159,12 @@
 								<?php endforeach; ?>
 					    	</tr>
 						<?php endforeach; ?>
+						<?php if(! isset($no_total) && @$no_total == false): ?>
 						<tr class="tabla__total tabla__items">
 							<td>TOTAL</td>
 							<td colspan="7"><?=$reporte[0]->total?></td>
 						</tr>
+						<?php endif; ?>
 					</table> 
 				</div>
 			</div>

@@ -15,7 +15,7 @@
 		public function mejorEmpleado($mes)
 		{
 			$exc = $this->runSql(
-				"SELECT dni_vendedor, nombre, apellido, sum(monto) total, count(dni_vendedor) as num_ventas FROM venta ve INNER JOIN vendedor v ON ve.dni_vendedor = v.dni WHERE MONTH(fecha)=$mes group by dni_vendedor"
+				"SELECT dni_vendedor, nombre, apellido, sum(monto) total, count(dni_vendedor) as num_ventas FROM venta ve INNER JOIN vendedor v ON ve.dni_vendedor = v.dni WHERE MONTH(fecha)=$mes group by dni_vendedor order by total DESC"
 			);
 
 			return $exc;

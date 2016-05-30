@@ -268,7 +268,8 @@
 			HS::sesion_no_iniciada($this);
 			
 			$data = array(
-				"title"          => "Dist. Plas Anthony"
+				"title"          => "Dist. Plas Anthony",
+				"no_total" => true
 			);
 
 			$data['cabezeras'] = array(
