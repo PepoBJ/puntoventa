@@ -40,6 +40,16 @@
 					'anio'    => '2016'
 				)
 			);
+			$ventas = MVenta::getAll();
+			
+			if(isset($ventas))
+			{
+				$codigo = $ventas[count($ventas) - 1]->getIdVenta();
+				$codigo = isset($codigo) && $codigo != "" ? $codigo + 1 : "10001";
+			}
+
+			$data['codigo'] = $codigo;
+
 
 			if(!empty($_POST) && isset($_POST))
 			{
@@ -59,7 +69,7 @@
 					$data['mensaje']  = "La Venta no fue registrada";
 				}
 			}
-
+			
 			$this->view('Venta/Venta', $data);
 		}
 

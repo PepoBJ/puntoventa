@@ -12,7 +12,14 @@
 		public function __construct()
 		{}
 
-		
+		public static function getAll()
+		{
+			$a_venta = new AVenta();
+
+			$ventas = $a_venta->getAll(self::VENTA_NAMESPACE);
+
+			return $ventas;
+		}
 		public static function reporte($fecha_ini, $fecha_fin)
 		{
 			$a_venta = new AVenta();
